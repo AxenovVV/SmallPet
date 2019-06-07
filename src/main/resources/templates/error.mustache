@@ -5,24 +5,33 @@
     <title>Ошибка!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<body>
+<body background="background.jpg">
 <br><br><br>
 <div align="center">
-    <div class="card" style="width: 23rem" >
-        <div class="alert alert-danger" role="alert">
-            <strong>Ошибка!</strong><br>
-            {{#message}}
-                {{message}}
-            {{/message}}
+    <div class="card border-success" style="width: 23rem" >
+        <div style="width: 18rem;">
+            <div class="alert alert-danger" role="alert">
+                <strong>Ошибка!</strong><br>
+                {{#message}}
+                    {{message}}
+                {{/message}}
+            </div>
+            <br>
+            <div align="center">
+                <form action="/home">
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+                    <input type="submit" class="btn btn-success" value="Личный кабинет">
+                </form>
+            </div>
+            <br><br>
         </div>
-        <br>
-        <div align="center">
-            <form action="/home">
-                <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                <input type="submit" class="btn btn-primary my-1" value="Личный кабинет">
-            </form>
+    </div>
+</div>
+<div class="fixed-bottom">
+    <div class="card border-success" style="width: 100%;">
+        <div>
+            Аксёнов Вячеслав 2019
         </div>
-        <br><br>
     </div>
 </div>
 </body>

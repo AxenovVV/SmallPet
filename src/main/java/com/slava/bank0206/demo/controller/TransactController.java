@@ -67,6 +67,21 @@ public class TransactController {
             return "success";
         }
 
+        if(!transactValid.isValidUserFrom()) {
+            model.put("message", "Переводы на свой счет запрещены!");
+            return "transfer";
+        }
+
+        if (username.isEmpty()) {
+            model.put("message", "Введите логин получателя!");
+            return "transfer";
+        }
+
+        if(!transactValid.isValidUserTo()) {
+            model.put("message", "Получателя не существует!");
+            return "transfer";
+        }
+
         if(!transactValid.isValidAmount()) {
             model.put("message", "Введите сумму для перевода в виде целого неотрицательного числа.");
             return "transfer";
@@ -75,16 +90,6 @@ public class TransactController {
         if(!transactValid.isValidBalance()) {
             model.put("message","На счете недостаточно средств для совершения перевода.");
             return "error";
-        }
-
-        if(!transactValid.isValidUserTo()) {
-            model.put("message", "Получателя не существует!");
-            return "error";
-        }
-
-        if (username.isEmpty()) {
-            model.put("message", "Введите логин получателя!");
-            return "transfer";
         }
 
         model.put("message", "Неизвестная ошибка");

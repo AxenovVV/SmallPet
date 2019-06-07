@@ -2,78 +2,100 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Личный кабинет</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></head>
-<body>
-<br>
-<br>
-<br>
-<div align="center">
-    <div class="card" style="width: 50rem; height: 50rem" >
-        <div align="right" style="padding-left: 1rem">
-            <br>
-            <form method="post" action="/logout">
-                <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                <input type="submit" class="btn btn-light" value="Выйти">
-            </form>
-        </div>
-
-        <div align="left" style="padding-right: 1rem">
-            {{#client}}
-                <div><h3><strong>{{name}} {{midName}} {{lastName}}</strong></h3></div>
-            {{/client}}
-        </div>
-            <h2>Личный кабинет</h2>
-                <div align="right">
-                    Баланс:<br>
-                    {{#client}}
-                        <b>{{balance}}</b>
-                    {{/client}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body background="background.jpg">
+<div>
+    <br>
+    <br>
+    <br>
+    <div align="center">
+        <div class="card border-success" style="width: 50rem; height: 50rem">
+            <div align="center">
+                <div style="width: 48rem;">
+                    <div align="right" style="padding-left: 1rem">
+                        <br>
+                        <form method="post" action="/logout">
+                            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                            <input type="submit" class="btn btn-light" value="Выйти">
+                        </form>
+                    </div>
+                    <div align="left">
+                        <h4>Добро пожаловать в личный кабинет,</h4>
+                        {{#client}}
+                            <div><h3><strong>{{name}} {{midName}} {{lastName}}</strong></h3></div>
+                        {{/client}}
+                    </div>
+                    <div align="right">
+                        Баланс:<br>
+                        {{#client}}
+                            <b>{{balance}}</b>
+                        {{/client}}
+                    </div>
+                    <div align="center">
+                        <table>
+                            <th>
+                                <form action="/deposit">
+                                    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                                    <input type="submit" class="btn btn-success" value="Пополнить">
+                                </form>
+                            </th>
+                            <th>
+                                <form action="/transfer">
+                                    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                                    <input type="submit" class="btn btn-success" value="Перевести">
+                                </form>
+                            </th>
+                        </table>
+                    </div>
                 </div>
-        <div align="center">
-            <table>
-                <th>
-                    <form action="/deposit">
-                        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                        <input type="submit" class="btn btn-light" value="Пополнить">
-                    </form>
-                </th>
-                <th>
-                    <form action="/transfer">
-                        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                        <input type="submit" class="btn btn-light" value="Перевести">
-                    </form>
-                </th>
-            </table>
+            </div>
+            <div align="center">
+                <div style="width: 40rem;">
+                    <br>
+                    <h4 align="center">Список операций:</h4>
+                    <br>
+                    <div class="table-responsive">
+                        <div class="card">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Время</th>
+                                    <th scope="col">Вид операции</th>
+                                    <th scope="col">Отправитель</th>
+                                    <th scope="col">Получатель</th>
+                                    <th scope="col">Сумма</th>
+                                </tr>
+                                </thead>
+                                {{#transactions}}
+                                    <tr>
+                                        <td scope="col">{{date}}</td>
+                                        <td scope="col">{{type}}</td>
+                                        <td scope="col">{{fromUsername}}</td>
+                                        <td scope="col">{{toUser.username}}</td>
+                                        <td scope="col">{{amount}}</td>
+                                    </tr>
+                                {{/transactions}}
+                            </table>
+                            {{^transactions}}
+                                <tr>
+                                    <div align="center">
+                                        Список операций пуст.
+                                    </div>
+                                </tr>
+                            {{/transactions}}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-<br>
-    <h4 align="center">Список операций:</h4>
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Время</th>
-                <th scope="col">Вид операции</th>
-                <th scope="col">Отправитель</th>
-                <th scope="col">Получатель</th>
-                <th scope="col">Сумма</th>
-            </tr>
-            </thead>
-
-
-
-            {{#transactions}}
-                <tr>
-                    <td scope="col">{{date}}</td>
-                    <td scope="col">{{type}}</td>
-                    <td scope="col">{{fromUsername}}</td>
-                    <td scope="col">{{toUser.username}}</td>
-                    <td scope="col">{{amount}}</td>
-                </tr>
-            {{/transactions}}
-        </table>
     </div>
-
+</div>
+<div class="fixed-bottom">
+    <div class="card border-success" style="width: 100%;">
+        <div>
+            Аксёнов Вячеслав 2019
+        </div>
     </div>
 </div>
 </body>

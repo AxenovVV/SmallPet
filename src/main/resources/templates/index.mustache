@@ -6,36 +6,43 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 </head>
-<body>
+<body background="background.jpg">
 <div class="container" align="center">
     <br><br><br>
-    <div class="card" style="width: 40rem; height: 10rem" >
-
-        <div><br> <h2>Добро пожаловать в MiniBank!</h2><br></div>
-
-        <table>
-            <th>
-            <td>
-                <form action="/login">
-                    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                    <input type="submit" class="btn btn-md btn-primary btn-block" value="Вход">
-                </form>
-            </td>
-            </th>
-            <th>
-            <td>
-                <form action="/registration">
-                    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                    <input type="submit" class="btn btn-md btn-primary btn-block" value="Регистрация">
-                </form>
-            </td>
-            </th>
-
-        </table>
+    <div class="card border-success" style="width: 40rem; height: 10rem">
+        <div align="center">
+            <div style="width: 30rem;">
+                <br>
+                <h2>Добро пожаловать в MiniBank!</h2>
+                <br>
+                <table>
+                    <th>
+                    <td>
+                        <form action="/login">
+                            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                            <input type="submit" class="btn btn-success" value="Вход">
+                        </form>
+                    </td>
+                    </th>
+                    <th>
+                    <td>
+                        <form action="/registration">
+                            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                            <input type="submit" class="btn btn-success" value="Регистрация">
+                        </form>
+                    </td>
+                    </th>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-
+<div class="fixed-bottom">
+    <div class="card border-success" style="width: 100%;">
+        <div class="card-body">
+            Аксёнов Вячеслав 2019
+        </div>
+    </div>
+</div>
 </body>
-
-
 </html>

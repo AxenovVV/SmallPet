@@ -57,7 +57,13 @@ public class TransactService {
         User userTo = userRepo.findByUsername(toUser);
         if(userTo == null) {
             transactValid.setValidUserTo(false);
+        } else {
+            if(userTo.getId().equals(fromUser.getId())) {
+                transactValid.setValidUserFrom(false);
+            }
         }
+
+
 
         //Проверка остальных факторов
         transactionValidator.validateTransaction(fromUser,amount,transactValid);

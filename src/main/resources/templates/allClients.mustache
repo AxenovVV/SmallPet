@@ -5,12 +5,17 @@
     <title>Список пользователей</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<body>
+<body background="background.jpg">
 <br>
 <br>
 <div align="center">
-    <div class="card" style="width: 25rem; height: 40rem" >
-        <br>
+    <div class="card border-success" style="width: 25rem; height: 40rem" >
+        <div align="left">
+            <form action="/transfer">
+                <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                <input type="submit" class="btn btn-light" value="Назад">
+            </form>
+        </div>
         <h4 align="center">Список пользователей</h4>
         <br>
         <br>
@@ -19,17 +24,22 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">Номер</th>
                     <th scope="col">Логин</th>
                 </tr>
                 </thead>
                 {{#users}}
                     <tr>
-                        <td scope="col">{{id}}</td>
                         <td scope="col">{{username}}</td>
                     </tr>
                 {{/users}}
             </table>
+        </div>
+    </div>
+</div>
+<div class="fixed-bottom">
+    <div class="card border-success" style="width: 100%;">
+        <div>
+            Аксёнов Вячеслав 2019
         </div>
     </div>
 </div>

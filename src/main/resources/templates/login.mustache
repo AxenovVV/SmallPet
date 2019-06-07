@@ -4,34 +4,45 @@
     <title>Вход</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<body>
+<body background="background.jpg">
 <br><br><br>
 <div align="center">
-    <div class="card" style="width: 23rem" >
-        <h2>Страница входа.</h2>
-        {{#error}}
-            <div class="alert alert-danger" role="alert">
-                {{error}}
-            </div>
-        {{/error}}
-        {{#message}}
-            <div class="alert alert-primary" role="alert">
-                {{message}}
-            </div>
-        {{/message}}
-        <br>
-        <div>
-            <form action="/login" method="post">
-                <div><label> Логин : <input class="form-control" type="text" name="username"/> </label></div>
-                <div><label> Пароль: <input class="form-control" type="password" name="password"/> </label></div>
-                <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                <button class="btn btn-primary my-1" type="submit">Войти</button>
-            </form>
-        </div>
+    <div class="card border-success" style="width: 23rem">
+        <div align="center">
+            <div style="width: 18rem;">
+                <h2>Страница входа.</h2>
+                <br>
+                {{#error}}
+                    <div class="alert alert-danger" role="alert">
+                        {{error}}
+                    </div>
+                {{/error}}
+                {{#message}}
+                    <div class="alert alert-primary" role="alert">
+                        {{message}}
+                    </div>
+                {{/message}}
+                <div>
+                    <form action="/login" method="post">
+                        <div><label> Логин : <input class="form-control" type="text" name="username"/> </label></div>
+                        <div><label> Пароль: <input class="form-control" type="password" name="password"/> </label>
+                        </div>
+                        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                        <button class="btn btn-success" type="submit">Войти</button>
+                    </form>
+                </div>
 
-        <a href="/registration">Регистрация</a>
+                <a href="/registration">Регистрация</a>
+            </div>
+        </div>
     </div>
 </div>
-
+<div class="fixed-bottom">
+    <div class="card border-success" style="width: 100%;">
+        <div>
+            Аксёнов Вячеслав 2019
+        </div>
+    </div>
+</div>
 </body>
 </html>

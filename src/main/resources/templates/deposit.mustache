@@ -4,10 +4,10 @@
     <title>Пополнение</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<body>
+<body background="background.jpg">
 <br><br><br>
 <div align="center">
-    <div class="card" style="width: 40rem; height: 30rem">
+    <div class="card border-success" style="width: 40rem;">
         <div align="left">
 
             <form action="/home">
@@ -16,12 +16,10 @@
             </form>
             <br>
         </div>
-
-        <br>
         <h3 align="center"><strong>Пополнение</strong></h3>
         <br>
         {{#message}}
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-danger" role="alert" style="width: 20rem;">
                 {{message}}
             </div>
         {{/message}}
@@ -32,14 +30,18 @@
                     <small id="help" class="form-text text-muted">Только сегодня! Пополнение бесплатно!</small>
                 </div>
                 <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                <input type="submit" class="btn btn-primary my-1" value="Пополнить">
+                <input type="submit" class="btn btn-success" value="Пополнить">
             </form>
         </div>
         <br><br>
     </div>
 </div>
-
-
-
+<div class="fixed-bottom">
+    <div class="card border-success" style="width: 100%;">
+        <div>
+            Аксёнов Вячеслав 2019
+        </div>
+    </div>
+</div>
 </body>
 </html>

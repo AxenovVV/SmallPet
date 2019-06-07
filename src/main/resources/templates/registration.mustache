@@ -4,13 +4,13 @@
     <title>Регистрация</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </head>
-<body>
+<body background="background.jpg">
 <br>
 <br>
 <br>
 <div align="center">
-    <div class="card" style="width: 40rem">
-        <div class="container">
+    <div class="card border-success" style="width: 40rem">
+        <div class="container" style="width: 30rem;">
 
             <h2>Страница регистрации</h2>
             {{#success}}
@@ -32,7 +32,7 @@
                 <div><label> Фамилия: <input type="text" class="form-control" name="lastName" placeholder="Фамилия"/> </label></div>
                 <div><label> Номер паспорта: <input type="text" class="form-control" name="passportNumber" placeholder="Номер паспорта"/> </label></div>
                 <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                <div><input type="submit" class="btn btn-primary my-1" value="Зарегистрироваться"/></div>
+                <div><input type="submit" class="btn btn-success" value="Зарегистрироваться"/></div>
             </form>
             <br>
             <a href="/login">Войти в уже существующую запись</a><br>
@@ -40,7 +40,12 @@
         </div>
     </div>
 </div>
-
-
+<div class="fixed-bottom">
+    <div class="card border-success" style="width: 100%;">
+        <div>
+            Аксёнов Вячеслав 2019
+        </div>
+    </div>
+</div>
 </body>
 </html>
