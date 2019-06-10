@@ -2,7 +2,6 @@ package com.slava.bank0206.demo.controller;
 
 import com.slava.bank0206.demo.dto.ClientDto;
 import com.slava.bank0206.demo.dto.UserDto;
-import com.slava.bank0206.demo.repos.UserRepo;
 import com.slava.bank0206.demo.service.RegistrationService;
 import com.slava.bank0206.demo.validator.RegisterValid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +14,6 @@ import java.util.Map;
 
 @Controller
 public class RegistrationController {
-
-    @Autowired
-    private UserRepo userRepo;
 
     @Autowired
     private RegistrationService registrationService;

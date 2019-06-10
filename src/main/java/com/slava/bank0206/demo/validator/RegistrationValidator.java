@@ -2,15 +2,10 @@ package com.slava.bank0206.demo.validator;
 
 import com.slava.bank0206.demo.dto.ClientDto;
 import com.slava.bank0206.demo.dto.UserDto;
-import com.slava.bank0206.demo.entity.Client;
-import com.slava.bank0206.demo.entity.User;
 import com.slava.bank0206.demo.repos.ClientRepo;
 import com.slava.bank0206.demo.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 public class RegistrationValidator {

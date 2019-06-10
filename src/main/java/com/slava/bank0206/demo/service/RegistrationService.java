@@ -9,6 +9,7 @@ import com.slava.bank0206.demo.repos.UserRepo;
 import com.slava.bank0206.demo.validator.RegisterValid;
 import com.slava.bank0206.demo.validator.RegistrationValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,6 +24,9 @@ public class RegistrationService {
     @Autowired
     private RegistrationValidator registrationValidator;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
 
     public RegisterValid doRegister(UserDto user, ClientDto client) {
 
@@ -36,7 +40,7 @@ public class RegistrationService {
                     client.getPassportNumber());
             User userEntity = new User(
                     user.getUsername(),
-                    user.getPassword(),
+                    passwordEncoder.encode(user.getPassword()),
                     true);
             userEntity.setClient(clientEntity);
             clientRepo.save(clientEntity);
