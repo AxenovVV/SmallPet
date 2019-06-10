@@ -62,9 +62,6 @@ public class TransactService {
                 transactValid.setValidUserFrom(false);
             }
         }
-
-
-
         //Проверка остальных факторов
         transactionValidator.validateTransaction(fromUser,amount,transactValid);
 

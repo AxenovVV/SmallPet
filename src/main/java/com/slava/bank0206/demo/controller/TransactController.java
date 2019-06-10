@@ -89,10 +89,10 @@ public class TransactController {
 
         if(!transactValid.isValidBalance()) {
             model.put("message","На счете недостаточно средств для совершения перевода.");
-            return "error";
+            return "trouble";
         }
 
         model.put("message", "Неизвестная ошибка");
-        return "error";
+        return "trouble";
     }
 }

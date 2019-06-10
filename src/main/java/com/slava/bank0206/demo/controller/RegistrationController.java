@@ -35,7 +35,7 @@ public class RegistrationController {
         if(registerValid.isValid()) {
 
             model.put("success", "Регистрация прошла успешно!");
-            return "registration";
+            return "login";
 
         } else {
 
@@ -62,7 +62,7 @@ public class RegistrationController {
             Map<String, Object> model) {
 
         if (error != null) {
-            model.put("error", "Неверный логин или пароль!");
+            model.put("trouble", "Неверный логин или пароль!");
         }
 
         if (logout != null) {

@@ -26,7 +26,11 @@ public class ClientService {
         Iterable<Client> clients1 = clientRepo.findAll();
 
         for (Client c : clients1) {
-            clients.add(new ClientDto(c.getName(),c.getMidName(),c.getLastName(),c.getPassportNumber()));
+            clients.add(new ClientDto(
+                    c.getName(),
+                    c.getMidName(),
+                    c.getLastName(),
+                    c.getPassportNumber()));
         }
         return clients;
     }

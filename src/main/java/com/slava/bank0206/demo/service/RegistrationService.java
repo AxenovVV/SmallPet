@@ -29,8 +29,15 @@ public class RegistrationService {
         RegisterValid registerValid = registrationValidator.validateRegistrationForm(user,client);
 
         if(registerValid.isValid()) {
-            Client clientEntity = new Client(client.getName(),client.getMidName(),client.getLastName(),client.getPassportNumber());
-            User userEntity = new User(user.getUsername(),user.getPassword(),true);
+            Client clientEntity = new Client(
+                    client.getName(),
+                    client.getMidName(),
+                    client.getLastName(),
+                    client.getPassportNumber());
+            User userEntity = new User(
+                    user.getUsername(),
+                    user.getPassword(),
+                    true);
             userEntity.setClient(clientEntity);
             clientRepo.save(clientEntity);
             userRepo.save(userEntity);
