@@ -45,6 +45,36 @@ public class RegistrationController {
                 return "registration";
             }
 
+            if(!registerValid.isValidUsername()) {
+                model.put("message", "Логин не может быть пустым!");
+                return "registration";
+            }
+
+            if(!registerValid.isValidPassword()) {
+                model.put("message", "Пароль не может быть пустым!");
+                return "registration";
+            }
+
+            if(!registerValid.isValidName()) {
+                model.put("message", "Имя пользователя не может быть пустым!");
+                return "registration";
+            }
+
+            if(!registerValid.isValidMidName()) {
+                model.put("message", "Поле фамилии не может быть пустым!");
+                return "registration";
+            }
+
+            if(!registerValid.isValidLastName()) {
+                model.put("message", "Отчество не может быть пустым!");
+                return "registration";
+            }
+
+            if(!registerValid.isValidPassport()) {
+                model.put("message", "Паспорт не может быть пустым!");
+                return "registration";
+            }
+
 
         }
         model.put("message", "Неизвестная ошибка!");
